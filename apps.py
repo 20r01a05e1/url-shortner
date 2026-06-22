@@ -67,11 +67,23 @@ def favicon():
 
 @app.route('/<short_url>')
 def redirection(short_url):
+    print("Received:", short_url)
+
+    long_url = Urls.query.filter_by(short=short_url).first()
+    print("Found:", long_url)
+
+    if long_url:
+        return redirect(long_url.long)
+    else:
+        return '<h1>Url does not exist</h1>'
+    
+'''@app.route('/<short_url>')
+def redirection(short_url):
     long_url = Urls.query.filter_by(short=short_url).first()
     if long_url:
         return redirect(long_url.long)
     else:
-        return f'<h1>Url does not exist</h1>'
+        return f'<h1>Url does not exist</h1>'''
 
 @app.route('/display/<url>')
 def display_short_url(url):
