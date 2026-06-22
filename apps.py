@@ -5,7 +5,11 @@ import string
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///urls.db'
+'''app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///urls.db'''
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+    'DATABASE_URL',
+    'sqlite:///urls.db'
+)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -13,8 +17,7 @@ db = SQLAlchemy(app)
 '''@app.before_first_request
 def create_tables():
     db.create_all()'''
-with app.app_context():
-    db.create_all()
+
 
 class Urls(db.Model):
     id_ = db.Column("id_", db.Integer, primary_key=True)
@@ -24,6 +27,9 @@ class Urls(db.Model):
     def __init__(self, long, short):
         self.long = long
         self.short = short
+        
+with app.app_context():
+    db.create_all()
 
 def shorten_url():
     letters = string.ascii_lowercase + string.ascii_uppercase
@@ -52,6 +58,12 @@ def home():
             return redirect(url_for("display_short_url", url=short_url))
     else:
         return render_template('url_page.html')
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return '', 204
+
 
 @app.route('/<short_url>')
 def redirection(short_url):
