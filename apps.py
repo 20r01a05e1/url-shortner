@@ -60,6 +60,10 @@ def home():
         return render_template('url_page.html')
 
 
+@app.route('/db_info')
+def db_info():
+    return str(app.config['SQLALCHEMY_DATABASE_URI'])
+
 @app.route('/favicon.ico')
 def favicon():
     return '', 204
@@ -101,6 +105,17 @@ def redirection(short_url):
 @app.route('/display/<url>')
 def display_short_url(url):
     return render_template('shorturl.html', short_url_display=url)
+
+
+@app.route('/debug')
+def debug():
+    urls = Urls.query.all()
+    result = ""
+    for u in urls:
+        result += f"{u.short} -> {u.long}<br>"
+    return result
+
+
 
 
 @app.route('/all_urls')
