@@ -6,10 +6,16 @@ import os
 
 app = Flask(__name__)
 '''app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///urls.db'''
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+INSTANCE_DIR = os.path.join(BASE_DIR, "instance")
+os.makedirs(INSTANCE_DIR, exist_ok=True)
+
+db_path = os.path.join(INSTANCE_DIR, "urls.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{db_path}"
+'''app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
     'DATABASE_URL',
     'sqlite:///urls.db'
-)
+)'''
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -115,7 +121,9 @@ def debug():
         result += f"{u.short} -> {u.long}<br>"
     return result
 
-
+@app.route('/dbpath')
+def dbpath():
+    return app.config['SQLALCHEMY_DATABASE_URI']
 
 
 @app.route('/all_urls')
