@@ -55,5 +55,6 @@ url-shortner/
 4. Copy the generated short URL.
 5. Open the short URL to be redirected to the original website.
 
+🔗Website hosted on - https://iamajay231102.pythonanywhere.com/
 
 ⭐ If you found this project helpful, consider giving it a star !
