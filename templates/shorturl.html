@@ -2,6 +2,29 @@
 {% block title %}Short URL{% endblock %}
 
 {% block content %}
-    <h1>http://127.0.0.1:5000/{{short_url_display}}</h1>
-    <a href="http://127.0.0.1:5000/{{ short_url_display }}">
+    <div class="result-card">
+
+<h2>
+
+Your Short URL
+
+</h2>
+
+<p>
+
+<a href="/{{ short_url_display }}">
+
+{{ request.host_url }}{{ short_url_display }}
+
+</a>
+
+</p>
+
+<a href="/" class="btn btn-success">
+
+Create Another
+
+</a>
+
+</div>
 {% endblock %}

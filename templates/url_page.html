@@ -2,14 +2,38 @@
 {% block title %}shorten URL{% endblock %}
 
 {% block content %}
-<form action="#", method="post">
-    <label for="url">Enter an https:// URL:</label>
 
-    <input type="url" name="nm" id="url"
-       placeholder="https://example.com"
-       pattern="https://.*" size="50"
-       required>
-    <br>
-    <input type="submit" value="submit" class="btn btn-primary">
+<div class="hero">
+
+    <div class="left">
+
+        <h1 style="color:purple; text-align:center;"> Ajay URL Shortener </h1>
+
+        <form action="#" method="POST">
+
+<label>
+
+Enter URL
+
+</label>
+
+<input
+type="url"
+name="nm"
+id="url"
+placeholder="https://example.com"
+pattern="https://.*"
+required>
+
+<input
+type="submit"
+value="Shorten"
+class="btn btn-primary">
+
 </form>
+
+</div>
+
+</div>
+
 {% endblock %}

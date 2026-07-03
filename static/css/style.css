@@ -1,0 +1,117 @@
+body{
+
+background:linear-gradient(135deg,#0a4c9c,#27b3df);
+
+min-height:100vh;
+
+}
+
+.container-fluid{
+
+padding:40px;
+
+}
+
+h1{
+
+color:white;
+
+font-size:55px;
+
+font-weight:bold;
+
+margin-bottom:40px;
+
+}
+
+.hero{
+
+display:flex;
+
+justify-content:center;
+
+margin-top:80px;
+
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left form{
+    width: 100%;
+}
+
+label{
+
+font-size:22px;
+
+font-weight:bold;
+
+}
+
+input[type=url]{
+
+margin-top:20px;
+
+margin-bottom:20px;
+
+padding:15px;
+
+font-size:18px;
+
+width:100%;
+
+border-radius:10px;
+
+border:1px solid #ddd;
+
+}
+
+.btn-primary{
+
+padding:12px 35px;
+
+font-size:20px;
+
+border-radius:30px;
+
+}
+
+.result-card{
+
+margin-top:100px;
+
+background:white;
+
+padding:40px;
+
+border-radius:15px;
+
+text-align:center;
+
+}
+
+.result-card h2{
+
+margin-bottom:20px;
+
+}
+
+.result-card p{
+
+font-size:22px;
+
+word-break:break-all;
+
+}
+
+.logo{
+    text-align: center;
+    font-size: 52px;
+    font-weight: 700;
+    color: #d40a0a;
+    margin-bottom: 40px;
+}
