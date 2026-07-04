@@ -1,9 +1,10 @@
-🔗 URL Shortener
+# 🔗 URL Shortener
 
 A simple and efficient URL Shortener built using Python, Flask, and SQLite. The application generates unique short URLs for long links and redirects users to the original destination instantly.
 
+---
 
-Features-
+## Features
 
 - 🔗 Generate unique short URLs
 - 🌐 Redirect short URLs to original links
@@ -14,7 +15,7 @@ Features-
 - 📱 Simple and user-friendly design
 
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
 - Backend: Python, Flask
 - Database: SQLite, SQLAlchemy
@@ -23,7 +24,7 @@ Features-
 - Deployment: PythonAnywhere
 
 
-📂 Project Structure
+## 📂 Project Structure
 
 ```
 url-shortner/
@@ -47,7 +48,7 @@ url-shortner/
 ```
 
 
-🌍 Usage
+## 🌍 Usage
 
 1. Open the application in your browser.
 2. Enter a valid long URL.
